@@ -1,0 +1,22 @@
+.header-container {
+    background-color:whitesmoke; 
+    max-width:1280px; 
+    height:80px; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 76px; 
+}
+
+
+span.logo-title {
+    font-size: 2rem; 
+    font-weight: bold;
+    padding-left: 12px;
+
+}
+
+.img-container {
+    display:flex;
+} 
+
