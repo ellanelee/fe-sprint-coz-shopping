@@ -4,9 +4,10 @@ import styled from 'styled-components';
 function Menu(){
 
 const MenuStyler = styled.div`
-  position: static; 
-  top: 100%; 
-  right: 0; 
+  position: absolute; 
+  overflow:hidden; 
+  top: 50px;
+  right: 20px; 
   width: 200px;
   height : 150px; 
   display: flex; 
@@ -23,9 +24,9 @@ const MenuStyler = styled.div`
     return(
         <div>
             <MenuStyler className="menuList">
-                <p>OOO님, 안녕하세요!</p>
-                <p><img src="../image/giftIcon.png"/> <span> 상품리스트 페이지</span></p>
-                <p><img src="../image/star_off.png"/><span> 북마크 페이지</span></p>
+                <div>OOO님, 안녕하세요!</div>
+                <div><img src="../image/giftIcon.png"/> 상품리스트 페이지</div>
+                <div><img src="../image/star_off.png"/> 북마크 페이지</div>
             </MenuStyler>
         </div>
     )

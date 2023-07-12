@@ -5,12 +5,13 @@ import Main from './page/Main';
 import Bookmark from './page/Bookmark'; 
 import ProductList from './page/ProductList'; 
 import GlobalStyle from './component/GlobalStyle';
+import axios from 'axios'; 
 
 function App() {
 
-  // const authHandler = () => {
+  // const productHandler = () => {
   //   return axios 
-  //   .get("http://localhost:4000/userinfo")
+  //   .get('http://cozshopping.codestates-seb.link/api-docs/#/Products/get_api_v1_products?count=10')
   //   .then((res) => {
   //    console.log(res.data)
   //   })
