@@ -4,16 +4,19 @@ import styled from "styled-components";
 function Footer(){
 
   const StyledFooter = styled.div`
-  max-width:1280px; 
+  width: 100%;
   height:58px; 
-  color: #888888
-  display:flex;
-  flex-direction: column;
-  text-align : center; 
+  color: #888888; 
+  display:flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
   font-family: Inter;
   font-size: 12px;
   font-weight: 400;
   line-height: 11px;
+  position: absolute; 
+  bottom: 0; 
   `
 
     return(

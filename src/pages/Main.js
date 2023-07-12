@@ -2,15 +2,16 @@ import Header from '../component/Header'
 import Footer from '../component/Footer'
 
 function Main(){
+    
+
     return (
-        <>
-        <div>
+        <section>
             <Header/>
+        <div >
+            MAIN
         </div>
-        <div>
             <Footer/>
-        </div>
-        </>
+        </section>
     )
 }
 
