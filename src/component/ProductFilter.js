@@ -31,19 +31,19 @@ function ProductFilter(){
             <div>전체</div>
         </FilterStyler>
         <FilterStyler>
-            <img src='../image/product.png' />
+            <img src='../image/product.png' alt="상품" />
             <p>상품</p>
          </FilterStyler>
          <FilterStyler>
-         <img src='../image/category.png' />
+         <img src='../image/category.png' alt="카테고리" />
             <p>카테고리</p>
          </FilterStyler>
          <FilterStyler>
-         <img src='../image/category.png' />
+         <img src='../image/category.png' alt="기획전"/>
             <p>기획전</p>
          </FilterStyler>
          <FilterStyler>
-         <img src='../image/brand.png' />
+         <img src='../image/brand.png'alt="브랜드" />
             <p>브랜드</p>
          </FilterStyler>
          </div>
