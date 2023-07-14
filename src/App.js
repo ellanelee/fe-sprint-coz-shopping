@@ -14,6 +14,10 @@ function App() {
   const [products, setProduct] = useState([])
   const [type, setType] = useState('all')
   const [activateModal, setActivateModal] = useState(false)
+  const [bookmark, setBookmark] = useState([])
+  const [modalProduct, setModalProduct] = useState('')
+  console.log(bookmark)
+  console.log(modalProduct)
 
 
   useEffect(() => {
@@ -26,23 +30,34 @@ function App() {
   return (
   <>
   <Router>
-    <div className="content-container">
-     <Header /> 
+     <Header className="header"/> 
      <Routes>
        <Route path="/" element={<Main 
         products={products} 
         activateModal={activateModal} 
-        setActivateModal={setActivateModal} />}/>
+        setActivateModal={setActivateModal} 
+        bookmark={bookmark} setBookmark={setBookmark}
+        modalProduct={modalProduct} setModalProduct={setModalProduct}/>}/>
        
        <Route path="/product/list" element={<ProductList 
         type={type} setType={setType} 
         products={products} 
         activateModal={activateModal} 
-        setActivateModal={setActivateModal}        />}/>
-       <Route path="/bookmark" element={<Bookmark/>} /> 
+        setActivateModal={setActivateModal}
+        bookmark={bookmark} setBookmark={setBookmark}
+        modalProduct={modalProduct} setModalProduct={setModalProduct}/>}/>
+       
+       <Route path="/bookmark" element={<Bookmark
+       type={type} setType={setType} 
+       activateModal={activateModal} 
+       setActivateModal={setActivateModal}
+       bookmark={bookmark} setBookmark={setBookmark}
+       modalProduct={modalProduct} setModalProduct={setModalProduct}/>} /> 
+    
+    
+    
      </Routes>
      <Footer />
-    </div>
    </Router>
   </>
   );

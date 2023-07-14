@@ -17,8 +17,10 @@ margin-left:76px;
 margin-top: ${props => props || "12px"};
 `
 
-function  Main({type, setType, products,activateModal,setActivateModal,modalHanlder}) {
-    
+function  Main(
+  {type, setType, products,activateModal,setActivateModal,bookmark,
+    setBookmark,modalProduct, setModalProduct}) {
+          
     const [mainProducts, setMainProduct] = useState([])
     useEffect(() => {
         axios.get('http://cozshopping.codestates-seb.link/api/v1/products?count=4')
@@ -34,8 +36,11 @@ function  Main({type, setType, products,activateModal,setActivateModal,modalHanl
         <TitleStyler style={{"margin-top":"52px"}}>상품 리스트</TitleStyler>
         <div className="main-content">
         { mainProducts.map((product) => 
-         <ProductCard key = {product.id} product={product} activateModal={activateModal} 
-         setActivateModal={setActivateModal} />
+         <ProductCard key = {product.id} product={product} 
+         activateModal={activateModal} 
+         setActivateModal={setActivateModal}
+         bookmark={bookmark} setBookmark={setBookmark}
+         modalProduct={modalProduct} setModalProduct={setModalProduct} />
         )}
         </div>
         </section>
@@ -43,8 +48,11 @@ function  Main({type, setType, products,activateModal,setActivateModal,modalHanl
         <TitleStyler>북마크 리스트</TitleStyler>
         <div className="main-content">
         { mainProducts.map((product) => 
-         <ProductCard key = {product.id} product={product} activateModal={activateModal} 
-         setActivateModal={setActivateModal} />
+         <ProductCard key = {product.id} product={product} 
+         activateModal={activateModal} 
+         setActivateModal={setActivateModal}
+         bookmark={bookmark} setBookmark={setBookmark}
+         modalProduct={modalProduct} setModalProduct={setModalProduct}  />
         )}
         </div>
         </section>

@@ -7,7 +7,7 @@ const ProductStyler = styled.div`
 height: 264px; 
 width: 264px; 
 margin: 12px; 
-postion:relative; 
+position:relative; 
 `
 const Title = styled.p`
 font-family: Inter;
@@ -18,24 +18,28 @@ letter-spacing: 0em;
 color: ${props => props.color || 'black'};
 `
 
-function ProductCard({product,activateModal,setActivateModal}){      
+function ProductCard(
+    {product,activateModal,setActivateModal,bookmark,setBookmark, modalProduct,setModalProduct}){      
 
     function modalHandler() {
         setActivateModal(!activateModal)
-        console.log(activateModal)
+        setModalProduct(product)
     }
 
-    function bookmarkHandler(){
 
+    function bookmarkHandler(){
+        console.log(product)
+        setBookmark([...bookmark,product]);   
     }
 
     return(
         <>
-        {activateModal === true ? <Modal product={product} modalHandelr={modalHandler}/>:null }
-         <ProductStyler onClick={modalHandler}>
+        {activateModal === true ? <Modal modalProduct={modalProduct} modalHandelr={modalHandler}/>:null }
+         <ProductStyler>
+            <div onClick={()=>modalHandler()}>
             <img src={product.type ==="Brand"? product.brand_image_url:product.image_url} 
             alt={product.title} style={{width:"264px", height:"200px"}}/>
-            
+            </div>   
             {product.type === 'Brand' ? 
             <>
             <div className="productDescription1">
@@ -61,7 +65,8 @@ function ProductCard({product,activateModal,setActivateModal}){
             <p>{parseInt(product.price).toLocaleString()}원</p>
             </div></div>
            </>:null}
-           <img className="bookmarkicon" src='../image/star_off.png' onClick={bookmarkHandler}/>
+           <img className="bookmarkicon" src='../image/star_off.png' 
+            onClick={()=>bookmarkHandler()}/>
           </ProductStyler> 
         </>  
         )

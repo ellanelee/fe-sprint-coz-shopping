@@ -20,11 +20,11 @@ const ModalContent = styled.div`
   border-radius: 8px;
 `
 
-function Modal({ product,modalHandler}) {
+function Modal({modalProduct,modalHandler}) {
   return (
     <ModalContainer >
       <ModalContent>
-        <img src={product.image_url} alt={product.title} style={{ width: "100%", height: "auto" }}
+        <img src={modalProduct.image_url} alt={modalProduct.title} style={{ width: "100%", height: "auto" }}
        onClick={modalHandler} />
       </ModalContent>
     </ModalContainer>
