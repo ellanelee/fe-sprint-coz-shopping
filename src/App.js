@@ -1,40 +1,49 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import './App.css'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Main from './page/Main'; 
 import Bookmark from './page/Bookmark'; 
 import ProductList from './page/ProductList'; 
-import GlobalStyle from './component/GlobalStyle';
 import axios from 'axios'; 
+import Header from './component/Header'
+import Footer from './component/Footer'
+
 
 function App() {
 
-  // const productHandler = () => {
-  //   return axios 
-  //   .get('http://cozshopping.codestates-seb.link/api-docs/#/Products/get_api_v1_products?count=10')
-  //   .then((res) => {
-  //    console.log(res.data)
-  //   })
-  //   .catch((err) => {
-  //     console.log(err.response.data)
-  //   })
-  // };
-
-  // useEffect(() => {
-  //   // 컴포넌트 생성 시 아래 함수가 실행됩니다.
-  //   authHandler();
-  // }, []);
+  const [products, setProduct] = useState([])
+  const [type, setType] = useState('all')
+  const [activateModal, setActivateModal] = useState(false)
 
 
+  useEffect(() => {
+    axios.get('http://cozshopping.codestates-seb.link/api/v1/products')
+  .then(response => setProduct(response.data))
+  .catch(error => console.error(error))
+  }, []);
+   
+  console.log(products)
   return (
   <>
   <Router>
-    <Routes>
-      <Route path="/" element={<Main/>}/>
-      <Route path="/" element={<ProductList/>}/>
-      <Route path="/bookmark" element={<Bookmark/>} /> 
-    </Routes>
-  </Router>
+    <div className="content-container">
+     <Header /> 
+     <Routes>
+       <Route path="/" element={<Main 
+        products={products} 
+        activateModal={activateModal} 
+        setActivateModal={setActivateModal} />}/>
+       
+       <Route path="/product/list" element={<ProductList 
+        type={type} setType={setType} 
+        products={products} 
+        activateModal={activateModal} 
+        setActivateModal={setActivateModal}        />}/>
+       <Route path="/bookmark" element={<Bookmark/>} /> 
+     </Routes>
+     <Footer />
+    </div>
+   </Router>
   </>
   );
 }

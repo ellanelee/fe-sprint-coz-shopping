@@ -1,9 +1,8 @@
 import React from "react"; 
 import styled from "styled-components";
+import "../App.css"
 
-function Footer(){
-
-  const StyledFooter = styled.div`
+const StyledFooter = styled.div`
   width: 100%;
   height:58px; 
   color: #888888; 
@@ -16,9 +15,8 @@ function Footer(){
   font-weight: 400;
   line-height: 11px;
   position: absolute; 
-  bottom: 0; 
   `
-
+function Footer(){
     return(
         <>
         <StyledFooter>

@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import './Header.css'
+import '../App.css'
 import Menu from './Menu'
 
 function Header(){
@@ -11,7 +11,7 @@ const HandleMenu = () => {
 return (
     <>
     <header className ="header-container">
-        <div className="logo-container">
+        <div className="logo-container" >
         <div className="img-container">        
          <img src="../image/logo.png" alt="logo"/>
          <span className="logo-title">COZ Shopping</span>
