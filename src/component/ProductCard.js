@@ -66,11 +66,8 @@ function ProductCard(
             </div></div>
            </>:null}
            
-           <input type="checkbox" id="bookmarkCheck"/>
+           <input type="checkbox" id="bookmarkCheck" onClick={()=>bookmarkHandler(product)}/>
            <label htmlFor="bookmarkCheck"></label>
-           
-         
-          
 
            {/* <img className="bookmarkicon" src='../image/star_off.png' 
             onClick={()=>bookmarkHandler(product)} alt="bookmark"/> */}
