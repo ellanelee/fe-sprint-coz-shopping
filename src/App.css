@@ -84,6 +84,27 @@ span.logo-title {
     display:flex;
 } 
 
+input[id="bookmarkCheck"] + label{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-image :url('../public/image/starOff.png')
+
+}
+
+input[id="bookmarkCheck"]{
+  display:none
+} 
+
+
+input[type='checkbox']:checked +label {
+    background-image: url('../public/image/startOn.png')
+}
+
+
 /*
 footer {
     width: 100%;

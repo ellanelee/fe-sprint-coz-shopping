@@ -25,7 +25,7 @@ function Modal({modalProduct,modalHandler}) {
     <ModalContainer >
       <ModalContent>
         <img src={modalProduct.image_url} alt={modalProduct.title} style={{ width: "100%", height: "auto" }}
-       onClick={modalHandler} />
+         onClick={modalHandler} />
       </ModalContent>
     </ModalContainer>
   );

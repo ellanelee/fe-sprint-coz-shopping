@@ -27,7 +27,7 @@ function ProductCard(
     }
 
 
-    function bookmarkHandler(){
+    function bookmarkHandler(product){
         console.log(product)
         setBookmark([...bookmark,product]);   
     }
@@ -65,8 +65,15 @@ function ProductCard(
             <p>{parseInt(product.price).toLocaleString()}원</p>
             </div></div>
            </>:null}
-           <img className="bookmarkicon" src='../image/star_off.png' 
-            onClick={()=>bookmarkHandler()}/>
+           
+           <input type="checkbox" id="bookmarkCheck"/>
+           <label htmlFor="bookmarkCheck"></label>
+           
+         
+          
+
+           {/* <img className="bookmarkicon" src='../image/star_off.png' 
+            onClick={()=>bookmarkHandler(product)} alt="bookmark"/> */}
           </ProductStyler> 
         </>  
         )
