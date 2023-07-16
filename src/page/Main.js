@@ -28,12 +28,10 @@ function  Main(
       .catch(error => console.error(error))
       }, []); 
 
-      console.log(mainProducts)
-    
       return(
         <>
         <section >
-        <TitleStyler style={{"marginTop":"52px"}}>상품 리스트</TitleStyler>
+        <TitleStyler style={{"marginTtop":"52px"}}>상품 리스트</TitleStyler>
         <div className="main-content">
         { mainProducts.map((product) => 
          <ProductCard key = {product.id} product={product} 
@@ -47,13 +45,13 @@ function  Main(
         <section >
         <TitleStyler>북마크 리스트</TitleStyler>
         <div className="main-content">
-        { mainProducts.map((product) => 
-         <ProductCard key = {product.id} product={product} 
-         activateModal={activateModal} 
-         setActivateModal={setActivateModal}
-         bookmark={bookmark} setBookmark={setBookmark}
-         modalProduct={modalProduct} setModalProduct={setModalProduct}  />
-        )}
+        { bookmark.map((product) => (
+                 <ProductCard key = {product.id} product={product} 
+                 activateModal={activateModal} setActivateModal={setActivateModal}  
+                 bookmark={bookmark} setBookmark={setBookmark}
+                 modalProduct={modalProduct} setModalProduct={setModalProduct}/>
+               ))
+        }
         </div>
         </section>
         

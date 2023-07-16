@@ -9,11 +9,9 @@ function ProductList(
      bookmark,setBookmark,
      modalProduct,setModalProduct}){
          
-       console.log(type)
        return(
         <section>
             <ProductFilter type={type} setType={setType}/>
-            {console.log(type)}
             <div className="product-content">
             { type === "all" ?  
               products.map((product) => (

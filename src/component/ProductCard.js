@@ -21,6 +21,8 @@ color: ${props => props.color || 'black'};
 function ProductCard(
     {product,activateModal,setActivateModal,bookmark,setBookmark, modalProduct,setModalProduct}){      
 
+    let isBookmarked = bookmark.map(el => (el.id))
+
     function modalHandler() {
         setActivateModal(!activateModal)
         setModalProduct(product)
@@ -28,8 +30,7 @@ function ProductCard(
 
     function handleBookmark(){
 
-        const bookMarkedId = bookmark.map(el => (el.id))
-        if(bookMarkedId.includes(product.id)){
+        if(isBookmarked.includes(product.id)){
             setBookmark(bookmark.filter(el => (el.id !== product.id)))
         }else 
           setBookmark([...bookmark,product])                  
@@ -39,7 +40,8 @@ function ProductCard(
         <>
          <ProductStyler>
          {activateModal === true ? <Modal modalProduct={modalProduct} modalHandelr={modalHandler}/>:null }
-         <input type="checkbox" className ="bookmarkInput" id={`bookmarkCheck${product.id}`} onClick={()=> handleBookmark(product)}/>
+         <input type="checkbox" className ="bookmarkInput" checked={isBookmarked.includes(product.id)} 
+          id={`bookmarkCheck${product.id}`} onClick={()=> handleBookmark(product)}/>
          {console.log(product.id)}
          <label htmlFor={`bookmarkCheck${product.id}`} className ="labelInput" ></label>
             <div onClick={()=>modalHandler()}>
