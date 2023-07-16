@@ -18,8 +18,7 @@ marginTop: ${props => props || "12px"};
 `
 
 function  Main(
-  {type, setType, products,activateModal,setActivateModal,bookmark,
-    setBookmark,modalProduct, setModalProduct}) {
+  {type, setType, products,bookmark,setBookmark}) {
           
     const [mainProducts, setMainProduct] = useState([])
     useEffect(() => {
@@ -35,10 +34,7 @@ function  Main(
         <div className="main-content">
         { mainProducts.map((product) => 
          <ProductCard key = {product.id} product={product} 
-         activateModal={activateModal} 
-         setActivateModal={setActivateModal}
-         bookmark={bookmark} setBookmark={setBookmark}
-         modalProduct={modalProduct} setModalProduct={setModalProduct} />
+         bookmark={bookmark} setBookmark={setBookmark} />
         )}
         </div>
         </section>
@@ -47,9 +43,7 @@ function  Main(
         <div className="main-content">
         { bookmark.map((product) => (
                  <ProductCard key = {product.id} product={product} 
-                 activateModal={activateModal} setActivateModal={setActivateModal}  
-                 bookmark={bookmark} setBookmark={setBookmark}
-                 modalProduct={modalProduct} setModalProduct={setModalProduct}/>
+                 bookmark={bookmark} setBookmark={setBookmark}/>
                ))
         }
         </div>

@@ -3,30 +3,34 @@ import styled from 'styled-components';
 
 const ModalContainer = styled.div`
   position: fixed;
-  top: 0;
-  left: 0;
+  top:0; 
+  left: 0; 
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: (0,0,0,0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+  border: 3px solid red;
+  z-index:9999; 
+  cursor: pointer; 
 `
 
-const ModalContent = styled.div`
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-`
+const ModalView = styled.div`
+  width: 744px;
+  height: 480px;
+  `
 
-function Modal({modalProduct,modalHandler}) {
+function Modal({modalProduct, isOpen, closeModal}) {
+
   return (
-    <ModalContainer >
-      <ModalContent>
-        <img src={modalProduct.image_url} alt={modalProduct.title} style={{ width: "100%", height: "auto" }}
-         onClick={modalHandler} />
-      </ModalContent>
+    <ModalContainer onClick={closeModal}>
+       <ModalView class="modal-container">
+        <img src={modalProduct.type ==="Brand"? 
+        modalProduct.brand_image_url:modalProduct.image_url} 
+        alt={modalProduct.title} style={{ width: "744px", height: "480px" }}
+        /><span>{modalProduct.title}</span>
+       </ModalView>
     </ModalContainer>
   );
 }

@@ -5,9 +5,7 @@ import '../App.css'
 function ProductList(
     {products,activateModal,
      type, setType, 
-     setActivateModal,
-     bookmark,setBookmark,
-     modalProduct,setModalProduct}){
+     bookmark,setBookmark}){
          
        return(
         <section>
@@ -16,38 +14,28 @@ function ProductList(
             { type === "all" ?  
               products.map((product) => (
                  <ProductCard key = {product.id} product={product} 
-                 activateModal={activateModal} setActivateModal={setActivateModal}  
-                 bookmark={bookmark} setBookmark={setBookmark}
-                 modalProduct={modalProduct} setModalProduct={setModalProduct}/>
+                 bookmark={bookmark} setBookmark={setBookmark}/>
                ))
              : type === "Category" ?
               products.filter((product) => product.type === type)
               .map((product) => ( 
                 <ProductCard key = {product.id} product={product} 
-                activateModal={activateModal} setActivateModal={setActivateModal}  
-                bookmark={bookmark} setBookmark={setBookmark}
-                modalProduct={modalProduct} setModalProduct={setModalProduct}/>))
+                bookmark={bookmark} setBookmark={setBookmark}/>))
              : type === "Product" ?
              products.filter((product) => product.type === type)
              .map((product) => ( 
                <ProductCard key = {product.id} product={product} 
-               activateModal={activateModal} setActivateModal={setActivateModal}  
-               bookmark={bookmark} setBookmark={setBookmark}
-               modalProduct={modalProduct} setModalProduct={setModalProduct}/>))
+               bookmark={bookmark} setBookmark={setBookmark}/>))
              : type === "Exhibition" ? 
              products.filter((product) => product.type === type)
              .map((product) => ( 
                <ProductCard key = {product.id} product={product} 
-               activateModal={activateModal} setActivateModal={setActivateModal}  
-               bookmark={bookmark} setBookmark={setBookmark}
-               modalProduct={modalProduct} setModalProduct={setModalProduct}/>))
+               bookmark={bookmark} setBookmark={setBookmark}/>))
              : type === "Brand" ?
              products.filter((product) => product.type === type)
              .map((product) => ( 
                <ProductCard key = {product.id} product={product} 
-               activateModal={activateModal} setActivateModal={setActivateModal}  
-               bookmark={bookmark} setBookmark={setBookmark}
-               modalProduct={modalProduct} setModalProduct={setModalProduct}/>))
+               bookmark={bookmark} setBookmark={setBookmark}/>))
              : null }
             
             </div>
