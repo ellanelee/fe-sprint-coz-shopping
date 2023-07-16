@@ -29,7 +29,7 @@
     margin: 0 52px ; 
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly; 
+    justify-content:baseline;  
     flex-wrap:wrap; 
     align-items: center; 
 }
@@ -84,8 +84,11 @@ span.logo-title {
     display:flex;
 } 
 
-input[id="bookmarkCheck"] + label{
+input + label{
 	display: inline-block;
+    position: absolute; 
+    top:150px;
+    left : 10px; 
 	width: 30px;
 	height: 30px;
 	cursor: pointer;
@@ -95,13 +98,13 @@ input[id="bookmarkCheck"] + label{
 
 }
 
-input[id="bookmarkCheck"]{
-  display:none
+input{
+    display:none
 } 
 
 
-input[type='checkbox']:checked +label {
-    background-image: url('../public/image/startOn.png')
+input:checked +label {
+    background-image: url('../public/image/starOn.png');
 }
 
 

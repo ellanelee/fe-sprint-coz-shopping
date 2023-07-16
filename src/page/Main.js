@@ -14,7 +14,7 @@ height: 38px;
 width: 178px;
 margin-top: 12px; 
 margin-left:76px;
-margin-top: ${props => props || "12px"};
+marginTop: ${props => props || "12px"};
 `
 
 function  Main(
@@ -33,7 +33,7 @@ function  Main(
       return(
         <>
         <section >
-        <TitleStyler style={{"margin-top":"52px"}}>상품 리스트</TitleStyler>
+        <TitleStyler style={{"marginTop":"52px"}}>상품 리스트</TitleStyler>
         <div className="main-content">
         { mainProducts.map((product) => 
          <ProductCard key = {product.id} product={product} 

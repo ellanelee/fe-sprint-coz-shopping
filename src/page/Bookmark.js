@@ -3,17 +3,54 @@ import ProductFilter from '../component/ProductFilter.js'
 import '../App.css'
 
 function Bookmark(
-    {activateModal,setActivateModal,bookmark,setBookmark,modalProduct,setModalProduct}){
-        console.log("북마크탭", bookmark)
+    {products,activateModal,
+     type, setType, 
+     setActivateModal,
+     bookmark,setBookmark,
+     modalProduct,setModalProduct}) {
+     console.log("북마크탭", bookmark)
+
         return(
         <section>
-            <ProductFilter/>
+            <ProductFilter type={type} setType={setType}/>
             <div className="product-content">
-            { bookmark.map((product) => 
-             <ProductCard key = {product.id} product={product} activateModal={activateModal} 
-             setActivateModal={setActivateModal}  bookmark={bookmark} setBookmark={setBookmark}
-             modalProduct={modalProduct} setModalProduct={setModalProduct} />
-            )}
+            { type === "all" ?  
+              bookmark.map((product) => (
+                 <ProductCard key = {product.id} product={product} 
+                 activateModal={activateModal} setActivateModal={setActivateModal}  
+                 bookmark={bookmark} setBookmark={setBookmark}
+                 modalProduct={modalProduct} setModalProduct={setModalProduct}/>
+               ))
+             : type === "Category" ?
+             bookmark.filter((product) => product.type === type)
+              .map((product) => ( 
+                <ProductCard key = {product.id} product={product} 
+                activateModal={activateModal} setActivateModal={setActivateModal}  
+                bookmark={bookmark} setBookmark={setBookmark}
+                modalProduct={modalProduct} setModalProduct={setModalProduct}/>))
+             : type === "Product" ?
+             bookmark.filter((product) => product.type === type)
+             .map((product) => ( 
+               <ProductCard key = {product.id} product={product} 
+               activateModal={activateModal} setActivateModal={setActivateModal}  
+               bookmark={bookmark} setBookmark={setBookmark}
+               modalProduct={modalProduct} setModalProduct={setModalProduct}/>))
+             : type === "Exhibition" ? 
+             bookmark.filter((product) => product.type === type)
+             .map((product) => ( 
+               <ProductCard key = {product.id} product={product} 
+               activateModal={activateModal} setActivateModal={setActivateModal}  
+               bookmark={bookmark} setBookmark={setBookmark}
+               modalProduct={modalProduct} setModalProduct={setModalProduct}/>))
+             : type === "Brand" ?
+             bookmark.filter((product) => product.type === type)
+             .map((product) => ( 
+               <ProductCard key = {product.id} product={product} 
+               activateModal={activateModal} setActivateModal={setActivateModal}  
+               bookmark={bookmark} setBookmark={setBookmark}
+               modalProduct={modalProduct} setModalProduct={setModalProduct}/>))
+             : null }
+            
             </div>
         </section>
     )

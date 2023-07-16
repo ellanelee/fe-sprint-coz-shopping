@@ -26,16 +26,22 @@ function ProductCard(
         setModalProduct(product)
     }
 
+    function handleBookmark(){
 
-    function bookmarkHandler(product){
-        console.log(product)
-        setBookmark([...bookmark,product]);   
+        const bookMarkedId = bookmark.map(el => (el.id))
+        if(bookMarkedId.includes(product.id)){
+            setBookmark(bookmark.filter(el => (el.id !== product.id)))
+        }else 
+          setBookmark([...bookmark,product])                  
     }
 
     return(
         <>
-        {activateModal === true ? <Modal modalProduct={modalProduct} modalHandelr={modalHandler}/>:null }
          <ProductStyler>
+         {activateModal === true ? <Modal modalProduct={modalProduct} modalHandelr={modalHandler}/>:null }
+         <input type="checkbox" className ="bookmarkInput" id={`bookmarkCheck${product.id}`} onClick={()=> handleBookmark(product)}/>
+         {console.log(product.id)}
+         <label htmlFor={`bookmarkCheck${product.id}`} className ="labelInput" ></label>
             <div onClick={()=>modalHandler()}>
             <img src={product.type ==="Brand"? product.brand_image_url:product.image_url} 
             alt={product.title} style={{width:"264px", height:"200px"}}/>
@@ -51,7 +57,7 @@ function ProductCard(
            </>:null}
             
             {product.type === 'Category' ? <Title>#{product.title}</Title> : null}
-            
+          
             {product.type === 'Exhibition' ? 
             <div><Title>{product.title}</Title>
             <div>{product.sub_title}</div></div>:null}
@@ -65,12 +71,6 @@ function ProductCard(
             <p>{parseInt(product.price).toLocaleString()}원</p>
             </div></div>
            </>:null}
-           
-           <input type="checkbox" id="bookmarkCheck" onClick={()=>bookmarkHandler(product)}/>
-           <label htmlFor="bookmarkCheck"></label>
-
-           {/* <img className="bookmarkicon" src='../image/star_off.png' 
-            onClick={()=>bookmarkHandler(product)} alt="bookmark"/> */}
           </ProductStyler> 
         </>  
         )

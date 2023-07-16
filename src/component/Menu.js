@@ -32,8 +32,8 @@ function Menu(){
             <div className="menuList">
                 <Link to ="/" className="menu-img">OOO님, 안녕하세요!</Link>
                 <Link to="/product/list" className="menu-img">
-                <img src="../image/giftIcon.png"/><span>상품리스트 페이지</span></Link>
-                <Link to="/bookmark" className="menu-img"><img src="../image/star_off.png"/>
+                <img src="../image/giftIcon.png" alt="상품리스트" /><span>상품리스트 페이지</span></Link>
+                <Link to="/bookmark" className="menu-img"><img src="../image/starOn.png" alt="북마크"/>
                 <span>북마크 페이지</span></Link>
             </div>
             </MenuStyler>
