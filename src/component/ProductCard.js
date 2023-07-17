@@ -23,31 +23,42 @@ color: ${props => props.color || 'black'};
 function ProductCard(
     {product,bookmark,setBookmark}){      
 
-    const [toastMessage, setToastMessage] = useState('');    
     const [isOpen, setIsOpen] = useState(false)
     const [modalProduct, setModalProduct] = useState('')
+    const [toastMessage, setToastMessage] = useState('');   
+    const [toastVisible, setToastVisible] = useState(false)
     
+
     let isBookmarked = bookmark.map(el => (el.id))
 
     function OpenModal() {
         setIsOpen(true)
         setModalProduct(product)
+        
     }
 
 
-  const closeModal = () => {
+   function closeModal () {
     setIsOpen(false);
     setModalProduct(null)
-  }
+   }
 
     function handleBookmark(){
 
         if(isBookmarked.includes(product.id)){
-            setBookmark(bookmark.filter(el => (el.id !== product.id)))
-            setToastMessage("상품이 북마크 해제되었습니다")
-        }else 
-          setBookmark([...bookmark,product])     
-          setToastMessage("상품이 북마크 표시되었습니다.")   
+            const updatedBookmark = bookmark.filter(el => el.id !== product.id);
+            setBookmark(updatedBookmark)
+            setToastMessage("상품이 북마크에서 제거되었습니다.")
+            setToastVisible(true)
+
+        }else {
+            const updatedBookmark = [...bookmark, product];
+            setBookmark(updatedBookmark)  
+            setToastMessage("상품이 북마크에 추가되었습니다.")  
+            setToastVisible(true)    
+            
+            
+        }
     }
 
     return(
@@ -92,7 +103,8 @@ function ProductCard(
                 </div>
             </div>
            </>:null}
-           {toastMessage && <Toast message={toastMessage} />}
+           {toastMessage && <Toast toastMessage={toastMessage} 
+            toastVisible={toastVisible} setToastVisible={setToastVisible}/>}
 
            
           </ProductStyler> 

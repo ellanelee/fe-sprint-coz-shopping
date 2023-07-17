@@ -17,10 +17,23 @@ const ModalContainer = styled.div`
 `
 
 const ModalView = styled.div`
-  width: 744px;
-  height: 480px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  position: relative; 
+  width: 744px; 
+  height: 480px
   `
 
+const TitleInModal = styled.span`
+ position: absolute;
+ bottom: 20px; 
+ left: 20px;
+ color:white; 
+ font-weight: 900; 
+ font-size: 18px;  
+ display:flex;
+ align-items : center;
+`
 function Modal({modalProduct, isOpen, closeModal}) {
 
   return (
@@ -28,8 +41,14 @@ function Modal({modalProduct, isOpen, closeModal}) {
        <ModalView class="modal-container">
         <img src={modalProduct.type ==="Brand"? 
         modalProduct.brand_image_url:modalProduct.image_url} 
-        alt={modalProduct.title} style={{ width: "744px", height: "480px" }}
-        /><span>{modalProduct.title}</span>
+        alt={modalProduct.title} 
+        style={{ width: "744px", height: "480px", borderRadius: "20px" }}
+        />
+        
+        <TitleInModal>
+        <img src="../image/starOff.png" style={{ marginRight:"5px"}}/>
+        <p style={{paddingTop: "2px"}}>{modalProduct.title}</p>
+        </TitleInModal>
        </ModalView>
     </ModalContainer>
   );
