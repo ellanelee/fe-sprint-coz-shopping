@@ -54,7 +54,7 @@ function Toast({toastMessage, toastVisible, setToastVisible}) {
   useEffect(()=> {
     const timer = setTimeout(() => {
       setToastVisible(false)
-    },700);
+    },2000);
     return ()=> clearTimeout(timer)
     },[toastVisible,setToastVisible])
 

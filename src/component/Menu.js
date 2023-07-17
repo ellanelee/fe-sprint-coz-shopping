@@ -24,12 +24,16 @@ const MenuStyler = styled.div`
   z-index: 999;
   `;
 
-function Menu(){
+function Menu({isOpen, setIsOpen}){
+
+    function closeMenu(){
+        setIsOpen(!(isOpen)); 
+    }
 
     return(
         <>
          <MenuStyler>
-            <div className="menuList">
+            <div className="menuList" onBlur={closeMenu}>
                 <Link to ="/" className="menu-img">OOO님, 안녕하세요!</Link>
                 <Link to="/product/list" className="menu-img">
                 <img src="../image/giftIcon.png" alt="상품리스트" /><span>상품리스트 페이지</span></Link>

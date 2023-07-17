@@ -63,7 +63,7 @@ function ProductFilter({type, setType}){
          </div>
          <div className="filterAll">
          <FilterStyler onClick={()=> typeHandler("기획전")}>
-         <img src='../image/category.png' alt="기획전"/>
+         <img src='../image/Exhibition.png' alt="기획전"/>
             <p>기획전</p>
          </FilterStyler>
          </div>

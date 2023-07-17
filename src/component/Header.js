@@ -5,7 +5,7 @@ import Menu from './Menu'
 function Header(){
 const [isOpen, setIsOpen] = useState(false)
 
-const HandleMenu = () => {
+const OpenMenu = () => {
     setIsOpen(!(isOpen))
 }
 return (
@@ -18,11 +18,11 @@ return (
         </div>
     </div>
     <div className="menu-container">
-    <img src="../image/hamburger.png" onClick ={HandleMenu}
+    <img src="../image/hamburger.png" onClick ={OpenMenu}
      alt="selection menu"/>
     </div>
     </header>
-    {isOpen === true ? <Menu/> : null}
+    {isOpen === true ? <Menu isOpen={isOpen} setIsOpen={setIsOpen}/> : null}
     </>
   )
 }
