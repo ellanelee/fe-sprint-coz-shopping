@@ -18,11 +18,17 @@
 1) 기본 화면구현 
 ![session_4_solo_display](https://github.com/ellanelee/fe-sprint-coz-shopping/assets/130072135/03ef3071-f197-4165-b036-1434c8a9108b)
 
+
+
 2)필터링 구현
 ![project_filtering](https://github.com/ellanelee/fe-sprint-coz-shopping/assets/130072135/8004ee99-772b-4a4e-b31f-7849f990bba2)
 
+
+
 3)북마크 구현 
 ![북마크 표시하기](https://github.com/ellanelee/fe-sprint-coz-shopping/assets/130072135/89498c10-0c47-45b2-b813-327285b4965b)
+
+
 
 4)모달
 ![모달 적용](https://github.com/ellanelee/fe-sprint-coz-shopping/assets/130072135/c8ed95ed-8c24-4b2e-936f-82ed45af5a1d)
