@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+프로젝트명 : Sesson4 Solo Project 
+프로젝트 기간 : 2023. 7. 11 ~ 7.17
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+주요 구현 내용
+1) API를 통해 쇼핑몰의 상품 데이터를 호출하여 화면에 표시
+2) 메인페이지, 제품페이지, 북마크 페이지를 구성
+3) 헤더의 상단의 메뉴를 통해 페이지를 이동 
+4) 화면에서 제품을 표시할때 무한 스크롤을 적용
+5) 제품 페이지에서 제품 타입별로 필터링하여 조회
+6) 제품을 북마크 하면 북마크 Toast로서 알림
+7) 북마크 된 제품은 북마크 페이지에 별도로 렌더링
+8) 제품을 Click하면 확대된 그림으로 조회
 
-## Available Scripts
+구현 방법 
+페이지의 갯수가 많지 않으므로 SPA가 가능한 React로 구현(CRA)적용 
+코드 리뷰 단위에 맞게 branch를 열고 PR, 리뷰 이후 반영된 내용을 merge 
 
-In the project directory, you can run:
+1) 기본 화면구현 
+![session_4_solo_display](https://github.com/ellanelee/fe-sprint-coz-shopping/assets/130072135/03ef3071-f197-4165-b036-1434c8a9108b)
 
-### `npm start`
+2)필터링 구현
+![project_filtering](https://github.com/ellanelee/fe-sprint-coz-shopping/assets/130072135/8004ee99-772b-4a4e-b31f-7849f990bba2)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3)북마크 구현 
+![북마크 표시하기](https://github.com/ellanelee/fe-sprint-coz-shopping/assets/130072135/89498c10-0c47-45b2-b813-327285b4965b)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4)모달
+![모달 적용](https://github.com/ellanelee/fe-sprint-coz-shopping/assets/130072135/c8ed95ed-8c24-4b2e-936f-82ed45af5a1d)
