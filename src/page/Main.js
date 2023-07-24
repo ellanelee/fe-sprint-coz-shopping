@@ -26,7 +26,8 @@ function  Main(
       .then(response => setMainProduct(response.data))
       .catch(error => console.error(error))
       }, []); 
-
+     
+    const editedBookmark = bookmark.slice(0,4)
       return(
         <>
         <section >
@@ -41,7 +42,7 @@ function  Main(
         <section >
         <TitleStyler>북마크 리스트</TitleStyler>
         <div className="main-content">
-        { bookmark.map((product) => (
+        { editedBookmark.map((product) => (
                  <ProductCard key = {product.id} product={product} 
                  bookmark={bookmark} setBookmark={setBookmark}/>
                ))

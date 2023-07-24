@@ -24,10 +24,10 @@ const MenuStyler = styled.div`
   z-index: 999;
   `;
 
-function Menu({isOpen, setIsOpen}){
+function Menu({MenuOpen, setMenuOpen}){
 
     function closeMenu(){
-        setIsOpen(!(isOpen)); 
+        setMenuOpen(!(MenuOpen)); 
     }
 
     return(

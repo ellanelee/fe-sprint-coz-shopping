@@ -46,7 +46,7 @@ function Modal({modalProduct, isOpen, closeModal}) {
         />
         
         <TitleInModal>
-        <img src="../image/starOff.png" style={{ marginRight:"5px"}}/>
+        <img src="../image/starOff.png" style={{ marginRight:"5px"}} alt="bookmark"/>
         <p style={{paddingTop: "2px"}}>{modalProduct.title}</p>
         </TitleInModal>
        </ModalView>
