@@ -10,6 +10,12 @@
  overflow:scroll; 
 } */
 
+.main-container {
+    display: flex;
+    flex-direction: column; 
+    align-items:center; 
+}
+
 .main-content {
     margin: 0 52px ; 
     display: flex;
@@ -23,7 +29,7 @@
     margin: 0 52px ; 
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly; 
+    justify-content:baseline;  
     flex-wrap:wrap; 
     align-items: center; 
 }
@@ -54,14 +60,16 @@
 
 .header-container {
     position:sticky; 
+    top:0px; 
     background-color:white; 
     box-shadow: 0px 0px 5px 5px lightgray; 
-    max-width:1280px; 
+    width:1280px; 
     height:80px; 
     display: flex;
     justify-content: space-between; 
     align-items: center; 
     padding: 0 76px; 
+    z-index: 999; 
 }
 
 
@@ -75,6 +83,30 @@ span.logo-title {
 .img-container {
     display:flex;
 } 
+
+input + label{
+	display: inline-block;
+    position: absolute; 
+    top:150px;
+    left : 10px; 
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-image :url('../public/image/starOff.png')
+
+}
+
+input{
+    display:none
+} 
+
+
+input:checked +label {
+    background-image: url('../public/image/starOn.png');
+}
+
 
 /*
 footer {

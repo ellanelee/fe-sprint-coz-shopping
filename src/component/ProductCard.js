@@ -1,13 +1,15 @@
+import { useState } from 'react'; 
 import styled from 'styled-components'; 
 import "../App.css"
 import Modal from "./Modal"
+import Toast from "./Toast"
 
 
 const ProductStyler = styled.div`
 height: 264px; 
 width: 264px; 
 margin: 12px; 
-postion:relative; 
+position:relative; 
 `
 const Title = styled.p`
 font-family: Inter;
@@ -18,25 +20,64 @@ letter-spacing: 0em;
 color: ${props => props.color || 'black'};
 `
 
-function ProductCard({product,activateModal,setActivateModal}){      
+function ProductCard(
+    {product,bookmark,setBookmark}){      
 
-    function modalHandler() {
-        setActivateModal(!activateModal)
-        console.log(activateModal)
+    const [isOpen, setIsOpen] = useState(false)
+    const [modalProduct, setModalProduct] = useState('')
+    const [toastMessage, setToastMessage] = useState('');   
+    const [toastVisible, setToastVisible] = useState(false)
+    
+
+    let isBookmarked = bookmark.map(el => (el.id))
+
+    function OpenModal() {
+        setIsOpen(true)
+        setModalProduct(product)
+        
     }
 
-    function bookmarkHandler(){
 
+   function closeModal () {
+    setIsOpen(false);
+    setModalProduct(null)
+   }
+
+    function handleBookmark(){
+
+        if(isBookmarked.includes(product.id)){
+            const updatedBookmark = bookmark.filter(el => el.id !== product.id);
+            setBookmark(updatedBookmark)
+            setToastMessage("상품이 북마크에서 제거되었습니다.")
+            setToastVisible(true)
+
+        }else {
+            const updatedBookmark = [...bookmark, product];
+            setBookmark(updatedBookmark)  
+            setToastMessage("상품이 북마크에 추가되었습니다.")  
+            setToastVisible(true)    
+            
+            
+        }
     }
 
     return(
         <>
-        {activateModal === true ? <Modal product={product} modalHandelr={modalHandler}/>:null }
-         <ProductStyler onClick={modalHandler}>
+         <ProductStyler>
+         {isOpen && <Modal isOpen={isOpen} modalProduct={modalProduct} 
+         closeModal={closeModal}/> }
+         
+         <input type="checkbox" className ="bookmarkInput" 
+         checked={isBookmarked.includes(product.id)} 
+         id={`bookmarkCheck${product.id}`} onChange={()=> handleBookmark(product)}/>
+         <label htmlFor={`bookmarkCheck${product.id}`} className ="labelInput" ></label>
+         
+         <div onClick={()=> OpenModal(product)}>
             <img src={product.type ==="Brand"? product.brand_image_url:product.image_url} 
             alt={product.title} style={{width:"264px", height:"200px"}}/>
-            
-            {product.type === 'Brand' ? 
+         </div>   
+         
+         {product.type === 'Brand' ? 
             <>
             <div className="productDescription1">
             <Title>{product.brand_name}</Title>
@@ -47,7 +88,7 @@ function ProductCard({product,activateModal,setActivateModal}){
            </>:null}
             
             {product.type === 'Category' ? <Title>#{product.title}</Title> : null}
-            
+          
             {product.type === 'Exhibition' ? 
             <div><Title>{product.title}</Title>
             <div>{product.sub_title}</div></div>:null}
@@ -55,13 +96,17 @@ function ProductCard({product,activateModal,setActivateModal}){
             {product.type === 'Product' ? 
             <>
             <div className="productDescription1">
-            <Title>{product.title}</Title>
-            <div className="productDescription2"> 
-            <Title style={{color:"blue"}}>{product.discountPercentage}%</Title>
-            <p>{parseInt(product.price).toLocaleString()}원</p>
-            </div></div>
+               <Title>{product.title}</Title>
+                <div className="productDescription2"> 
+                 <Title style={{color:"blue"}}>{product.discountPercentage}%</Title>
+                 <p>{parseInt(product.price).toLocaleString()}원</p>
+                </div>
+            </div>
            </>:null}
-           <img className="bookmarkicon" src='../image/star_off.png' onClick={bookmarkHandler}/>
+           {toastMessage && <Toast toastMessage={toastMessage} 
+            toastVisible={toastVisible} setToastVisible={setToastVisible}/>}
+
+           
           </ProductStyler> 
         </>  
         )

@@ -3,10 +3,10 @@ import '../App.css'
 import Menu from './Menu'
 
 function Header(){
-const [isOpen, setIsOpen] = useState(false)
+const [MenuOpen, setMenuOpen] = useState(false)
 
-const HandleMenu = () => {
-    setIsOpen(!(isOpen))
+const OpenMenu = () => {
+    setMenuOpen(!(MenuOpen))
 }
 return (
     <>
@@ -18,11 +18,11 @@ return (
         </div>
     </div>
     <div className="menu-container">
-    <img src="../image/hamburger.png" onClick ={HandleMenu}
+    <img src="../image/hamburger.png" onClick ={OpenMenu}
      alt="selection menu"/>
     </div>
     </header>
-    {isOpen === true ? <Menu/> : null}
+    {MenuOpen === true ? <Menu MenuOpen={MenuOpen} setMenuOpen={setMenuOpen}/> : null}
     </>
   )
 }
